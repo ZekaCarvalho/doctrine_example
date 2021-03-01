@@ -4,9 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AlunoRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
-
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AlunoRepository::class)
@@ -22,13 +20,13 @@ class Aluno
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Este campo não pode ser nulo)
+     * @Assert\NotBlank(message="Este campo não pode ser nulo")
      */
     private $Nome;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Este campo não pode ser nulo)
+     * @Assert\NotBlank(message="Este campo não pode ser nulo")
      */
     private $Localidade;
 

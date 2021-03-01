@@ -63,11 +63,11 @@ class AlunoController extends AbstractController
         $aluno->setNome($r->request->get('nome'));
         $aluno->setLocalidade($r->request->get('localidade'));
 
-        $erros = $validador->validate($aluno);
+        $errors = $validador->validate($aluno);
 
-        if ( count($erros > 0)){
+        if (count($errors) > 0){
             return $this->render('aluno/index.html.twig',[
-                'errors' => $erros,
+                'errors' => $errors,
             ]); 
         }
 
@@ -75,9 +75,11 @@ class AlunoController extends AbstractController
         $entityManager->persist($aluno);
         $entityManager->flush();
 
-        $this->addFlash('sucesso', 'Aluno cadastrado!');
+        $this->addFlash('ok', 'Aluno cadastrado!');
 
-        return $this->render('aluno/index.html.twig'); 
+        return $this->render('aluno/index.html.twig', [
+            'errors' => '',
+        ]); 
     }
 
 
