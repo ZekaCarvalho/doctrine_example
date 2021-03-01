@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<h1>
+		Cadastro de aluno
+	</h1>
+	{% for message in app.flashes('sucesso') %}
+		<div>
+			<script>
+				alert({{ message }})
+			</script>
+
+		</div>
+	{% endfor %}
+
+	{% if errors %}
+		{% for error in errors %}
+			<script>
+				alert({{ error.message }})
+			</script>
+		{% endfor %}
+	{% endif %}
+
+
+	<form action="{{ path('criar_aluno') }}" method="post">
+		<div>
+			<label for="nome">Nome</label>
+			<input type="text" name="nome">
+		</div>
+
+		<div>
+			<label for="localidade">Localidade</label>
+			<input type="text" name="localidade">
+		</div>
+
+		<button type="submit">
+			Enviar
+		</button>
+	</form>
+
+{% endblock %}
