@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<form action="{{ path("product/edit") }}" method="post" >
+
+		<input id="id" type="text" value={{ pId }} readonly="true"/>
+
+		<div>
+			<label for="name">Nome</label>
+			<input name="name" type="text" value={{ pName }}/>
+		</div>
+
+		<div>
+			<label for="price">Preço</label>
+			<input name="price" type="text" value={{ pPrice }}/>
+		</div>
+
+		<div>
+			<label for="description">Descrição</label>
+			<input name="description" type="text" value={{ pDescription }}/>
+		</div>
+
+		<button type="submit">
+			Enviar
+		</button>
+
+	</form>
+
+
+{% endblock %}

@@ -20,13 +20,13 @@ class Aluno
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Este campo não pode ser nulo")
+     * @Assert\NotBlank(message="Este campo nao pode ser nulo")
      */
     private $Nome;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Este campo não pode ser nulo")
+     * @Assert\NotBlank(message="Este campo nao pode ser nulo")
      */
     private $Localidade;
 

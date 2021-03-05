@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1> {{ titulo }} </h1>
+
+	{% if products %}
+		{% for p in products %}
+			<p>{{ p.name }}  </p>
+		{% endfor %}
+	{% endif %}
+
+
+{% endblock %}

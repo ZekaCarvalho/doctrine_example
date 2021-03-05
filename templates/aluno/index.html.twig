@@ -5,14 +5,13 @@
 	<h1>
 		Cadastro de aluno
 	</h1>
-	{% for message in app.flashes('ok') %}
+	{% if app.flashes('ok') %}
 		<div>
 			<script>
-				alert({{ message }})
+				alert('Persistido!')
 			</script>
-
 		</div>
-	{% endfor %}
+	{% endif %}
 
 	{% if errors %}
 		{% for error in errors %}

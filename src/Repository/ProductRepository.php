@@ -19,6 +19,25 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+    /**
+  * @return Product[] 
+    */
+    public function findMenor(): array 
+    {
+
+    $entityManager = $this->getEntityManager();
+
+    $query = $entityManager->createQuery(
+      'SELECT p
+            FROM App\Entity\Product p
+            WHERE p.price > :price
+            ORDER BY p.price ASC'
+    )->setParameter('price', 2000);
+
+
+     return $query->getResult();
+    }
+
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */
